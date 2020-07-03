@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    #例如：下面配置去获取master分支下的public-dev.yml
+    config:
+      label: master     #分支名称
+      name: public      #配置文件名称
+      profile: dev      #配置文件后缀描述名称
+      uri: http://localhost:3344
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

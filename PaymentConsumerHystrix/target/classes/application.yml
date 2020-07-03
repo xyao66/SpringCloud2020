@@ -1,0 +1,22 @@
+server:
+  port: 80
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: payment-hystrix-order      #eureka管理界面显示该服务的名称，而不是IP地址
+    prefer-ip-address: true       #鼠标悬浮在服务上时将显示映射的IP地址
+    #客户端向服务端发送心跳的时间间隔 默认 30秒，本次设置为1秒
+    lease-renewal-interval-in-seconds:  1
+    #服务端最后一次收到心跳等待的时间上限，默认90秒 如果超过该值，服务端将认为客户端已停止
+    lease-expiration-duration-in-seconds:  2
+spring:
+  application:
+    name: payment-hystrix-order
+
+feign:
+  hystrix:
+    enabled: true #如果处理自身的容错就开启。开启方式与生产端不一样。

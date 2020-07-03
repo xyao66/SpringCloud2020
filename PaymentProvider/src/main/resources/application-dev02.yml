@@ -1,0 +1,14 @@
+#模拟多服务器部署
+server:
+  port: 8002
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      #将应用分别注册到两台集群搭建的服务器上
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+  instance:
+    instance-id: payment8002
+    prefer-ip-address: true         #访问地址IP显示

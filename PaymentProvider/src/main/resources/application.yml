@@ -1,0 +1,21 @@
+
+
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: spring
+    password: spring
+  #外部传递参数spring.profiles.active=dev01 来决定启动端口不同的同一应用
+  #用来模拟同一应用多台无服务器部署
+  profiles:
+    active: dev01
+
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.xyao.springcloud.entity

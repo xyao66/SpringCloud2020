@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: payment-hystrix-provider
+  #    eviction-interval-timer-in-ms: 2000
